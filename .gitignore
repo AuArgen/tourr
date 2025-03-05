@@ -1,0 +1,30 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.sqlite3
+
+# Django
+/db.sqlite3
+/media/
+*.log
+
+# Virtual Environment
+venv/
+env/
+*.venv
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Static and Media Files (Production)
+staticfiles/
+node_modules/
+
+# Secret Files
+.env
+config/settings_local.py
