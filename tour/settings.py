@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'city.apps.CityConfig',
     'post.apps.PostConfig',
     'gallery.apps.GalleryConfig',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -110,6 +111,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Default primary key field type
