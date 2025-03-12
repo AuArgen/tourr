@@ -44,3 +44,10 @@ def showPost(request, pk):
         'trend_posts': trend_posts,
     }
     return render(request, 'show_post.html', context)
+
+def cities(request):
+    cities = City.objects.all().order_by('id')
+    context = {
+        'cities': cities,
+    }
+    return render(request, 'cities.html', context)
