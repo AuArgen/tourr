@@ -7,4 +7,5 @@ urlpatterns = [
 
     path('cities', cities, name='cities'),
     path('posts', posts, name='posts'),
+    path('galleries', galleries, name='galleries'),
 ]

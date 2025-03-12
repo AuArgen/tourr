@@ -19,6 +19,7 @@ def home(request):
     }
     return render(request, 'index.html', context)
 
+
 def showCity(request, pk):
     city = City.objects.filter(id=pk).first()
     posts = Post.objects.filter(city=city).order_by('id')
@@ -31,6 +32,7 @@ def showCity(request, pk):
         'trend_posts': trend_posts,
     }
     return render(request, 'show_city.html', context)
+
 
 def showPost(request, pk):
     post = Post.objects.filter(id=pk).first()
@@ -45,6 +47,7 @@ def showPost(request, pk):
     }
     return render(request, 'show_post.html', context)
 
+
 def cities(request):
     cities = City.objects.all().order_by('id')
     context = {
@@ -52,9 +55,18 @@ def cities(request):
     }
     return render(request, 'cities.html', context)
 
+
 def posts(request):
     posts = Post.objects.all().order_by('id')
     context = {
         'posts': posts,
     }
     return render(request, 'posts.html', context)
+
+
+def galleries(request):
+    galleries = Gallery.objects.all().order_by('id')
+    context = {
+        'galleries': galleries,
+    }
+    return render(request, 'gallery.html', context)
