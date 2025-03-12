@@ -6,4 +6,5 @@ urlpatterns = [
     path('post/<int:pk>', showPost, name='show_post'),
 
     path('cities', cities, name='cities'),
+    path('posts', posts, name='posts'),
 ]

@@ -51,3 +51,10 @@ def cities(request):
         'cities': cities,
     }
     return render(request, 'cities.html', context)
+
+def posts(request):
+    posts = Post.objects.all().order_by('id')
+    context = {
+        'posts': posts,
+    }
+    return render(request, 'posts.html', context)
