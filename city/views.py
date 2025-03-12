@@ -31,3 +31,16 @@ def showCity(request, pk):
         'trend_posts': trend_posts,
     }
     return render(request, 'show_city.html', context)
+
+def showPost(request, pk):
+    post = Post.objects.filter(id=pk).first()
+    posts = Post.objects.filter(is_popular=True).order_by('id')
+    galleries = Gallery.objects.filter(is_show=True).order_by('id')
+    trend_posts = Post.objects.filter(is_trending=True).order_by('id')
+    context = {
+        'post': post,
+        'posts': posts,
+        'galleries': galleries,
+        'trend_posts': trend_posts,
+    }
+    return render(request, 'show_post.html', context)
