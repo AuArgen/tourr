@@ -18,3 +18,16 @@ def home(request):
         'trend_posts': trend_posts,
     }
     return render(request, 'index.html', context)
+
+def showCity(request, pk):
+    city = City.objects.filter(id=pk).first()
+    posts = Post.objects.filter(city=city).order_by('id')
+    galleries = Gallery.objects.filter(is_show=True).order_by('id')
+    trend_posts = Post.objects.filter(is_trending=True).order_by('id')
+    context = {
+        'city': city,
+        'posts': posts,
+        'galleries': galleries,
+        'trend_posts': trend_posts,
+    }
+    return render(request, 'show_city.html', context)

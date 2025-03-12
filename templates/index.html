@@ -290,7 +290,7 @@
 
                     {% for city in cities %}
                         <div class="swiper-slide">
-                            <a href="#" class="featureImage -type-1 text-center -hover-image-scale">
+                            <a href="{% url 'show_city' city.id %}" class="featureImage -type-1 text-center -hover-image-scale">
                                 <div class="featureImage__image mx-auto rounded-full -hover-image-scale__image">
                                     <img src="{{ city.image.url }}" alt="image"
                                          class="size-130 object-cover rounded-full">
