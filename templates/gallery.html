@@ -43,24 +43,9 @@
                 </div>
             </div>
 
-            <div data-anim-wrap class="grid -type-1 pt-40 sm:pt-20">
-                {% for gallery in galleries %}
-
-                    {% if forloop.counter > 6 %}
-                        <a href="{{ gallery.image.url }}" data-anim-child="slide-up delay-1"
-                           class="featureCard -type-1 -hover-1 overflow-hidden rounded-12 px-30 py-30" style="width: 320px">
-                            <div class="featureCard__image" style="width: 320px">
-
-                                <img src="{{ gallery.image.url }}" style="width: 320px" alt="image">
-                            </div>
-                            <div class="featureCard__content">
-                                <h4 class="text-white">
-                                    {{ gallery.title }}
-                                </h4>
-                            </div>
-                        </a>
-
-                    {% else %}
+            {% for datas in galleries %}
+                <div data-anim-wrap class="grid -type-1 pt-40 sm:pt-20">
+                    {% for gallery in datas %}
                         <a href="{{ gallery.image.url }}" data-anim-child="slide-up delay-1"
                            class="featureCard -type-1 -hover-1 overflow-hidden rounded-12 px-30 py-30">
                             <div class="featureCard__image">
@@ -73,12 +58,9 @@
                                 </h4>
                             </div>
                         </a>
-
-                    {% endif %}
-
-
-                {% endfor %}
-            </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
         </div>
     </section>
 

@@ -66,7 +66,8 @@ def posts(request):
 
 def galleries(request):
     galleries = Gallery.objects.all().order_by('id')
+    data = [galleries[i:i + 6] for i in range(0, len(galleries), 6)]
     context = {
-        'galleries': galleries,
+        'galleries': data,
     }
     return render(request, 'gallery.html', context)
