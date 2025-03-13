@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from city.models import City
+from city.models import City, About
 from gallery.models import Gallery
 from post.models import Post
 
@@ -71,3 +71,10 @@ def galleries(request):
         'galleries': data,
     }
     return render(request, 'gallery.html', context)
+
+def about(request):
+    about = About.objects.first()
+    context = {
+        'about': about,
+    }
+    return render(request, 'about.html', context)

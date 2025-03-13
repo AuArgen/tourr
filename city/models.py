@@ -3,6 +3,7 @@ import uuid
 from ckeditor.fields import RichTextField
 from django.db import models
 
+
 def unique_image_path(instance, filename):
     """
     Генерирует уникальное имя файла для изображения.
@@ -10,6 +11,7 @@ def unique_image_path(instance, filename):
     ext = filename.split('.')[-1]  # Получаем расширение файла
     unique_filename = f"{uuid.uuid4().hex}.{ext}"  # Генерируем уникальное имя
     return os.path.join('images/', unique_filename)  # Указываем путь
+
 
 class City(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название')
@@ -20,7 +22,19 @@ class City(models.Model):
 
     class Meta:
         verbose_name = 'City'
-        verbose_name_plural = 'Cities'
+        verbose_name_plural = 'Направление'
+
+    def __str__(self):
+        return self.title
+
+
+class About(models.Model):
+    title = models.CharField(max_length=100, verbose_name='Тема')
+    about = RichTextField(verbose_name='О нас')
+
+    class Meta:
+        verbose_name = 'О нас'
+        verbose_name_plural = 'О нас'
 
     def __str__(self):
         return self.title

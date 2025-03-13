@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} ViaTours О нас {% endblock %}
+{% block content %}
+
+    <section class="hero -type-1">
+        <div class="hero__bg">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117148.57177944208!2d72.72559593664377!3d40.52009378495816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bdac017f5a2e85%3A0xe0a3c61dc6f47b95!2z0J7RiA!5e1!3m2!1sru!2skg!4v1741883945636!5m2!1sru!2skg"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <img src="{% static 'img/hero/1/shape.svg' %}" alt="image">
+
+        </div>
+    </section>
+
+    <section data-anim="fade" class="layout-pt-lg layout-pb-lg is-in-view mt-80">
+        <div class="container ">
+            {{ about.about | safe }}
+        </div>
+    </section>
+
+    <section data-anim="fade" class="layout-pt-lg layout-pb-lg is-in-view bg-light-1 mt-80">
+        <div class="container ">
+            <div class="row justify-center">
+                <div class="col-lg-8">
+                    <h2 class="text-30 fw-700 text-center mb-30">Оставьте нам свою информацию</h2>
+
+                    <div class="contactForm">
+                        <div class="row y-gap-30">
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Имя">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Телефон">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" placeholder="Электронная почта">
+                            </div>
+                            <div class="col-12">
+                                <textarea placeholder="Сообщение" rows="6"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="button -md -dark-1 bg-accent-1 text-white col-12">Отправить сообщение
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="layout-pt-xl">
+        <div data-anim-wrap class="container">
+            <div data-anim-child="slide-up" class="row y-gap-10 justify-between items-end">
+                <div class="col-auto">
+                    <h2 class="text-30 md:text-24">Все направление</h2>
+                </div>
+
+                <div class="col-auto">
+
+
+                </div>
+            </div>
+
+
+            <div class="row y-gap-30 justify-start pt-40 sm:pt-20 mobile-css-slider -w-300">
+                {% for city in cities %}
+                    <div data-anim-child="slide-up delay-{{ forloop.counter }}" class="col-lg-3 col-md-6">
+
+                        <a href="{% url 'show_city' city.id %}"
+                           class="tourCard -type-1 py-10 px-10 border-1 rounded-12  -hover-shadow">
+                            <div class="tourCard__header">
+                                <div class="tourCard__image ratio ratio-28:20">
+                                    <img src="{{ city.image.url }}" alt="image" class="img-ratio rounded-12">
+                                </div>
+
+                                <button class="tourCard__favorite">
+                                    <i class="icon-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="tourCard__content px-10 pt-10">
+                                <div class="tourCard__location d-flex items-center text-13 text-light-2">
+                                    <i class="icon-pin d-flex text-16 text-light-2 mr-5"></i> {{ city.title }}
+                                </div>
+
+                                <h3 class="tourCard__title text-16 fw-500 mt-5">
+                                    <span>{{ city.title }}</span>
+                                </h3>
+
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <section data-anim="slide-up delay-1" class="cta -type-1 mt-80 mb-80">
+        <div class="cta__bg">
+            <img src="{% static 'img/cta/1/bg.png' %}" alt="image">
+        </div>
+
+        <div class="container">
+            <div class="row justify-between">
+                <div class="col-xl-5 col-lg-6">
+                    <div class="cta__content">
+                        <h2 class="text-40 md:text-24 lh-13 text-white">
+                            Получите 5% скидку на<br class="lg:d-none"> первое бронирование в приложении
+                        </h2>
+
+                        <p class="mt-10 text-white">
+                            Бронируйте через приложение и экономьте. Используйте промокод<br class="lg:d-none">
+                            "TourBooking" для скидки!
+                        </p>
+
+                        <div class="text-18 text-white mt-40 md:mt-20">
+                            Получите волшебную ссылку на вашу электронную почту
+                        </div>
+
+                        <div class="mt-10">
+                            <div class="singleInput -type-2 row x-gap-10 y-gap-10">
+                                <div class="col-md-auto col-12">
+                                    <input type="email" placeholder="Электронная почта" class="">
+                                </div>
+                                <div class="col-md-auto col-12">
+                                    <button class="button -md -accent-1 bg-white col-12 text-accent-2">Отправить
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="cta__image">
+                        <img src="{% static 'img/cta/1/1.png' %}" alt="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
