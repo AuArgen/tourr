@@ -21,7 +21,7 @@ class City(models.Model):
     is_show = models.BooleanField(default=False, verbose_name='Добавить на главный')
 
     class Meta:
-        verbose_name = 'City'
+        verbose_name = 'Направления'
         verbose_name_plural = 'Направление'
 
     def __str__(self):
