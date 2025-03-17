@@ -72,9 +72,17 @@ def galleries(request):
     }
     return render(request, 'gallery.html', context)
 
+
 def about(request):
     about = About.objects.first()
     context = {
         'about': about,
     }
     return render(request, 'about.html', context)
+
+
+def login(request):
+    return render(request, 'login.html')
+
+def register(request):
+    return render(request, 'register.html')

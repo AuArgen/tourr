@@ -9,4 +9,6 @@ urlpatterns = [
     path('posts', posts, name='posts'),
     path('galleries', galleries, name='galleries'),
     path('about', about, name='about'),
+    path('login', login, name='login'),
+    path('register', register, name='register'),
 ]
