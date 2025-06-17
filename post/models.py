@@ -33,3 +33,19 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Order(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, verbose_name='Пост')
+    name = models.CharField(max_length=100, verbose_name='Имя')
+    last_name = models.CharField(max_length=100, verbose_name='Фамилия')
+    email = models.EmailField(verbose_name='Емайл')
+    phone = models.CharField(max_length=20, verbose_name='Телефон')
+    comment = models.TextField(verbose_name='Описание')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создание')
+
+    class Meta:
+        verbose_name = 'Брон'
+        verbose_name_plural = 'Броны'
+
+    def __str__(self):
+        return self.name

@@ -32,6 +32,44 @@
         </div>
     </section>
 
+    <section data-anim="fade" class="layout-pt-lg layout-pb-lg is-in-view bg-light-1 mt-80">
+        <div class="container ">
+            <div class="row justify-center">
+                <div class="col-lg-8">
+                    <h2 class="text-30 fw-700 text-center mb-30">Оставьте нам свою информацию чтобы бронировать</h2>
+                    <form action="/order_save/{{ post.id }}" method="post">
+                        {% csrf_token %}
+                        <div class="contactForm">
+                            <div class="row y-gap-30">
+                                <div class="col-md-6">
+                                    <input type="text" required name="name" placeholder="Имя">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" required name="last_name" placeholder="Фамилия">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" required name="phone" placeholder="Телефон">
+                                </div>
+                                <div class="col-6">
+                                    <input type="email" required name="email" placeholder="Электронная почта">
+                                </div>
+                                <div class="col-12">
+                                    <textarea placeholder="Сообщение" required name="comment" rows="6"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="button -md -dark-1 bg-accent-1 text-white col-12">Отправить сообщение
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <section class="layout-pt-xl layout-pb-xl">
         <div data-anim-wrap class="container">
             <div data-anim-child="slide-up" class="row justify-between items-end y-gap-10">

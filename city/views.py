@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from city.models import City, About
 from gallery.models import Gallery
-from post.models import Post
+from post.models import Post, Order
 
 
 # Create your views here.
@@ -86,3 +86,20 @@ def login(request):
 
 def register(request):
     return render(request, 'register.html')
+
+def orderSave(request, pk):
+    if request.method == 'POST':
+        name = request.POST['name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        comment = request.POST['comment']
+        post = Post.objects.get(id=pk)
+        if not post:
+            return redirect('/')
+        Order.objects.create(post=post,name=name, last_name=last_name, email=email, phone=phone, comment=comment)
+        return redirect('/success')
+    return redirect('/')
+
+def success(request):
+    return render(request, 'success.html')

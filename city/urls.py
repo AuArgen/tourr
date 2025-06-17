@@ -11,4 +11,6 @@ urlpatterns = [
     path('about', about, name='about'),
     path('login', login, name='login'),
     path('register', register, name='register'),
+    path('success', success, name='success'),
+    path('order_save/<int:pk>', orderSave, name='order_save'),
 ]
